@@ -1,0 +1,30 @@
+def calculate_area(shape, dimension1, dimension2=0):
+    """
+    Calculate the area of a given shape.
+    
+    Parameters:
+    - shape (str): "circle", "rectangle", or "triangle"
+    - dimension1 (float): radius for circle, length/base for rectangle/triangle
+    - dimension2 (float, optional): width for rectangle or height for triangle (default is 0)
+    
+    Returns:
+    - float: Calculated area of the shape.
+    """
+    shape = shape.lower()
+
+    if shape == "circle":
+        area = math.pi * (dimension1 ** 2)
+    elif shape == "rectangle":
+        area = dimension1 * dimension2
+    elif shape == "triangle":
+        area = 0.5 * dimension1 * dimension2
+    else:
+        raise ValueError("Unsupported shape! Please choose 'circle', 'rectangle', or 'triangle'.")
+    
+    return area
+
+# Testing the function with different shapes
+print("Area Calculations:")
+print(f"Circle (radius = 5): {calculate_area('circle', 5):.2f}")
+print(f"Rectangle (length = 4, width = 6): {calculate_area('rectangle', 4, 6):.2f}")
+print(f"Triangle (base = 3, height = 7): {calculate_area('triangle', 3, 7):.2f}")
